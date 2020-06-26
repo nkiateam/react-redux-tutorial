@@ -1,14 +1,20 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { hot } from 'react-hot-loader/root'
 import './index.css'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
 
-const WithHotReload = process.env.NODE_ENV === 'production' ? App : hot(App)
+import modules from './modules'
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+
+const store = createStore(modules)
+
 ReactDOM.render(
     <React.StrictMode>
-        <WithHotReload />
+        <Provider store={store}>
+            <App />
+        </Provider>
     </React.StrictMode>,
     document.getElementById('root'),
 )
