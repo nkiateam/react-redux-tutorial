@@ -6,6 +6,7 @@ import PageTemplate from './components/PageTemplate'
 // import TogoList from './components/TodoList';
 import TodoInputContainer from './containers/TodoInputContainer'
 import TodoListContainer from './containers/TodoListContainer'
+import TodoListHooksContainer from './containers/TodoListHooksContainer'
 
 class App extends Component {
     /*
@@ -89,12 +90,20 @@ class App extends Component {
         // const { input, todos } = this.state;
         // const { handleChange, handleInsert, handleToggle, handleRemove } = this;
         return (
-            <PageTemplate>
-                {/* <TodoInput onChange={handleChange} onInsert={handleInsert} value={input}/>
+            <>
+                <PageTemplate>
+                    {/* <TodoInput onChange={handleChange} onInsert={handleInsert} value={input}/>
         <TogoList todos={todos} onToggle={handleToggle} onRemove={handleRemove}/> */}
-                <TodoInputContainer />
-                <TodoListContainer />
-            </PageTemplate>
+                    <TodoInputContainer />
+                    <TodoListContainer />
+                </PageTemplate>
+
+                <hr />
+                <div style={{ textAlign: 'center' }}>
+                    <h1>일정 관리 (hooks)</h1>
+                    <TodoListHooksContainer />
+                </div>
+            </>
         )
     }
 }
