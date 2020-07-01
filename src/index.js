@@ -9,7 +9,11 @@ import modules from './class/modules'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 
-const store = createStore(modules)
+const store = createStore(
+    modules,
+    window.__REDUX_DEVTOOLS_EXTENSION__ &&
+        window.__REDUX_DEVTOOLS_EXTENSION__(),
+)
 
 ReactDOM.render(
     <React.StrictMode>
