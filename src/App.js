@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import './App.css'
 
-import PageTemplate from './components/PageTemplate'
 // import TodoInput from './components/TodoInput';
 // import TogoList from './components/TodoList';
-import TodoInputContainer from './containers/TodoInputContainer'
-import TodoListContainer from './containers/TodoListContainer'
-import TodoListHooksContainer from './containers/TodoListHooksContainer'
+import PageTemplate from './class/components/PageTemplate'
+import TodoInputContainer from './class/containers/TodoInputContainer'
+import TodoListContainer from './class/containers/TodoListContainer'
+
+// import TodoListContainerHooks from './hooks/containers/TodoListContainer';
 
 class App extends Component {
     /*
@@ -99,10 +100,10 @@ class App extends Component {
                 </PageTemplate>
 
                 <hr />
-                <div style={{ textAlign: 'center' }}>
+                {/* <div style={{ textAlign: 'center' }}>
                     <h1>일정 관리 (hooks)</h1>
-                    <TodoListHooksContainer />
-                </div>
+                    <TodoListContainerHooks />
+                </div> */}
             </>
         )
     }
