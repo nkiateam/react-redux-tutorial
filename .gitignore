@@ -397,4 +397,5 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+package-lock.json
 # End of https://www.toptal.com/developers/gitignore/api/code,macos,windows,eclipse,jetbrains+all,node,webstorm
