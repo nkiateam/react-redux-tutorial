@@ -1,10 +1,12 @@
 import React from 'react'
 import Input from '../atoms/Input'
 import Button from '../atoms/Button'
-import { connect } from 'react-redux'
+import { connect, useDispatch, useSelector } from 'react-redux'
 import { addTodo, changeTodoText } from '../../redux/actions/actionCreators'
 
-const TodoInput = ({ todoText, dispatch }) => {
+const TodoInput = () => {
+    const todoText = useSelector((state) => state.todoText)
+    const dispatch = useDispatch()
     const handleAdd = () => {
         if (todoText) {
             dispatch(
@@ -31,6 +33,4 @@ const TodoInput = ({ todoText, dispatch }) => {
     )
 }
 
-const mapStateToProps = (state, ownProps) => ({ todoText: state.todoText })
-
-export default connect(mapStateToProps)(TodoInput)
+export default TodoInput

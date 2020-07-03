@@ -1,10 +1,13 @@
 import React from 'react'
 import List from '../atoms/List'
 import TodoItem from './TodoItem'
-import { connect } from 'react-redux'
+import { connect, useDispatch, useSelector } from 'react-redux'
 import { toggleTodo } from '../../redux/actions/actionCreators'
 
-const TodoList = ({ todoList, dispatch }) => {
+const TodoList = () => {
+    const todoList = useSelector((state) => state.todoList)
+    const dispatch = useDispatch()
+
     const handleToggle = (todo) => dispatch(toggleTodo(todo))
     const makeTodoItems = () =>
         todoList.map((todo) => ({
@@ -15,4 +18,4 @@ const TodoList = ({ todoList, dispatch }) => {
     return <List items={makeTodoItems()} />
 }
 
-export default connect(({ todoList }) => ({ todoList }))(TodoList)
+export default TodoList
