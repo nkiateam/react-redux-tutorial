@@ -1,21 +1,18 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import List from '../atoms/List'
 import TodoItem from './TodoItem'
+import { connect } from 'react-redux'
+import { toggleTodo } from '../../redux/actions/actionCreators'
 
-const TodoList = ({ todoList, onToggle }) => {
+const TodoList = ({ todoList, dispatch }) => {
+    const handleToggle = (todo) => dispatch(toggleTodo(todo))
     const makeTodoItems = () =>
         todoList.map((todo) => ({
             key: todo.key,
-            value: <TodoItem todo={todo} onToggle={onToggle} />,
+            value: <TodoItem todo={todo} onToggle={handleToggle} />,
         }))
 
     return <List items={makeTodoItems()} />
 }
 
-TodoList.propTypes = {
-    todoList: PropTypes.array.isRequired,
-    onToggle: PropTypes.func,
-}
-
-export default TodoList
+export default connect(({ todoList }) => ({ todoList }))(TodoList)

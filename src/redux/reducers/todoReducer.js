@@ -12,6 +12,7 @@ const todoReducer = (state = initState, action) => {
             const moment = days()
             const todo = {
                 ...action.payload,
+                done: false,
                 key: +moment,
                 lastModified: moment.format('YYYY.MM.DD HH:mm:ss'),
             }
